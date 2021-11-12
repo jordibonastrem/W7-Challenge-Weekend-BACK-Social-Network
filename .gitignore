@@ -1,0 +1,5 @@
+node_modules
+.env
+coverage
+sonar-project.properties
+sonnar.properties
