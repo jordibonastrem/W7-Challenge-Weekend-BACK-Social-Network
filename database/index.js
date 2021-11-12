@@ -1,4 +1,5 @@
 /* eslint-disable no-underscore-dangle */
+
 const debug = require("debug")("social:database");
 const chalk = require("chalk");
 const mongoose = require("mongoose");
