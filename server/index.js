@@ -3,6 +3,7 @@ const chalk = require("chalk");
 const cors = require("cors");
 const express = require("express");
 const morgan = require("morgan");
+const usersRoutes = require("./routes/usersRoutes");
 const {
   notFoundErrorHandler,
   generalErrorHandler,
@@ -33,6 +34,8 @@ const initializeServer = (port) =>
 
 app.use(morgan("dev"));
 app.use(express.json());
+
+app.use("/users", usersRoutes);
 
 app.use(notFoundErrorHandler);
 app.use(generalErrorHandler);
