@@ -3,6 +3,10 @@ const chalk = require("chalk");
 const cors = require("cors");
 const express = require("express");
 const morgan = require("morgan");
+const {
+  notFoundErrorHandler,
+  generalErrorHandler,
+} = require("./middlewares/error");
 
 const app = express();
 app.use(cors());
@@ -29,5 +33,8 @@ const initializeServer = (port) =>
 
 app.use(morgan("dev"));
 app.use(express.json());
+
+app.use(notFoundErrorHandler);
+app.use(generalErrorHandler);
 
 module.exports = { app, initializeServer };
