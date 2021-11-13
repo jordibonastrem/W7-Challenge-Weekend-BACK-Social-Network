@@ -78,4 +78,22 @@ describe("Given a /users endopoint", () => {
       expect(body).toEqual(expectedError);
     });
   });
+  describe("When a POST request arrives for /users/login with a password that is not in the DB", () => {
+    test("Then it should send a response with a status code of 401 and a error message saying 'Wrong Credentials'.", async () => {
+      const credentials = {
+        username: "testuser",
+        password: "testwrongpassword",
+      };
+      const { body } = await request
+        .post("/users/login")
+        .send(credentials)
+        .expect(401);
+      const expectedError = {
+        error: "Wrong credentials",
+      };
+
+      expect(body.error).toBeDefined();
+      expect(body).toEqual(expectedError);
+    });
+  });
 });
