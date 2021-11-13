@@ -1,7 +1,6 @@
 require("dotenv").config();
-const bcrypt = require("bcrypt");
+
 const connectDB = require("./database/index");
-const User = require("./database/models/user");
 
 const { initializeServer } = require("./server/index");
 
