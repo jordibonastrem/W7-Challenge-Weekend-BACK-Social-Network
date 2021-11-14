@@ -32,6 +32,12 @@ const loginUser = async (req, res, next) => {
   }
 };
 
+const getUsers = async (req, res) => {
+  const users = await User.find();
+  res.json(users);
+};
+
 module.exports = {
   loginUser,
+  getUsers,
 };
